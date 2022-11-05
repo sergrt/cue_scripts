@@ -32,6 +32,7 @@ if __name__ == '__main__':
     ErrorInfo = namedtuple("ErrorInfo", ["filename", "error_text"])
 
     wav_str = ".wav"
+    wav_regex = "\\.wav"
     flac_str = ".flac"
     files_checked = 0
     files_processed = 0
@@ -66,9 +67,8 @@ if __name__ == '__main__':
                         backup_file.write(filedata)
 
                     # Replace the target string
-                    print("Replace {} to {}".format(wav_str, flac_str))
-                    # filedata = filedata.replace(wav_str, flac_str)
-                    filedata = replace_all(wav_str, flac_str, filedata)
+                    print("Replace {} to {}".format(wav_regex, flac_str))
+                    filedata = replace_all(wav_regex, flac_str, filedata)
 
                     # Write the file out again
                     print("Save updated file")
